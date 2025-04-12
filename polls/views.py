@@ -50,7 +50,7 @@ class LoginView(APIView):
                 value=access_token,
                 httponly=True,
                 secure=True,  # Set to True in production
-                samesite=None,
+                samesite='lax',
                 max_age=3600
             )
 
