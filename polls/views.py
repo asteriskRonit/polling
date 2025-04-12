@@ -46,12 +46,12 @@ class LoginView(APIView):
             }, status=status.HTTP_200_OK)
 
             response.set_cookie(
-                key='access_token',
-                value=access_token,
-                httponly=True,
-                secure=True,  # Set to True in production
-                samesite='lax',
-                max_age=3600
+                 key='access_token',
+                 value=access_token,
+                 httponly=False,
+                 secure=True,         # Required for SameSite in modern browsers
+                 samesite=None,      # Correct case! Python is case-sensitive here
+                 max_age=3600
             )
 
             return response
